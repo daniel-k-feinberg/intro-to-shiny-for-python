@@ -18,8 +18,8 @@ with ui.sidebar():
     )
 
 with ui.layout_columns(
-  col_widths=(4, 4, 4, 6, 6),
-  row_heights = (1, 4)
+    col_widths=(4, 4, 4, 6, 6),
+    row_heights = (1, 4)
 ):
     
     with ui.value_box(
