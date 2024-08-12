@@ -13,7 +13,7 @@ date: "Aug 12, 2024"
 
 *Note: you can use some outputs as inputs and and some inputs as outputs*
 
-## What we don't need to worry about 
+## What we don't need to worry about
 
 -   cache
 
@@ -23,7 +23,7 @@ date: "Aug 12, 2024"
 
 -   or even HTML, CSS, or JavaScript
 
-## `Shiny Express` vs `Shiny Core` 
+## `Shiny Express` vs `Shiny Core`
 
 -   two different syntaxes for writing shiny apps
 
@@ -41,5 +41,6 @@ date: "Aug 12, 2024"
 
     -   `shiny express` uses decorators in a more extensive way; very powerful; less boilerplate
 
-## Positron notes 
-  - Press F1 context instead of help
+## Positron notes
+
+-   Press F1 context instead of help
