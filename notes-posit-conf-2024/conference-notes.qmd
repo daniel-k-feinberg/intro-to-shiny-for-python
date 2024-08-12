@@ -1,17 +1,23 @@
 ---
-title: "Notes from the Conference"
+title: "Posit Conf 2024: Intro to Shiny for Python"
 date: "Aug 12, 2024"
 ---
 
-# Resources
+## Resources
 
--   [Slides](https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/shiny-express-slides.html#/to-make-an-app-reactive-1)
+-   [Overall Shiny Express Website with Slides](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
+
+-   [Part 1 Slides](https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/shiny-express-slides.html#/to-make-an-app-reactive-1)
+
+-   [Part 2 Slides](https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/reactivity-intro-slides.html#/title-slide)
 
 -   [API Ref](https://shiny.posit.co/py/api/express/)
 
 -   [Shiny Express Components](https://shiny.posit.co/py/components/)
 
-# Intro to Shiny
+-   [Non-Blocking Operations](https://shiny.posit.co/py/docs/nonblocking.html)
+
+    -   this is helpful if you have multiple users
 
 ## Basic components
 
@@ -49,7 +55,7 @@ date: "Aug 12, 2024"
 
     -   `shiny express` uses decorators in a more extensive way; very powerful; less boilerplate
 
-# Discussing Outputs
+## Discussing Outputs
 
 -   decorators help a lot
 
@@ -61,8 +67,30 @@ date: "Aug 12, 2024"
 
     -   allows our code to be much more concise
 
-## working on express-104-outputs
-
-# Positron notes
+## Positron notes
 
 -   Press F1 context instead of help
+
+## General python notes
+
+### Fstring
+
+```         
+-   fstring basically works like glue() in R
+-   "f" stands for "format" string
+```
+
+```{python, eval=FALSE}
+from shiny.express import input, render, ui
+
+ui.input_slider("n", "N", 0, 100, 20)
+@render.text
+def txt():
+    return f"2 * n is {input.n() * 2}" # fstring basically works like glue() in R
+```
+
+## Working on apps/200-penguins
+
+-   App has 2 inputs and 2 outputs
+
+-   check out non-blocking operations on the shiny for python website (in resources above)
