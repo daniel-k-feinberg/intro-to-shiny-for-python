@@ -4,8 +4,10 @@ pandas
 matplotlib
 scikit-learn
 plotnine
+plotly
 shiny 
-shinylive 
+shinylive
+shinywidgets
 seaborn
 jupyter
 jupyter-cache

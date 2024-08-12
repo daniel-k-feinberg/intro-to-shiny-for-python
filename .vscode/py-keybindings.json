@@ -1,0 +1,29 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "alt+-",
+    "command": "type",
+    "when": "editorLangId =~ /r|rmd|qmd/ && editorTextFocus",
+    "args": {"text": " = "}
+  },
+
+  {
+    "key": "shift+cmd+m",
+    "command": "type",
+    "when": "editorLangId =~ /r|rmd|qmd/ && editorTextFocus",
+    "args": {"text": " >> "}
+  },
+
+  {
+    "key": "shift+cmd+i",
+    "command": "-quarto.insertCodeCell",
+    "when": "editorLangId =~ /r|rmd|qmd/ && editorTextFocus"
+  },
+
+  {
+    "key": "shift+cmd+o",
+    "command": "type",
+    "when": "editorLangId =~ /r|rmd|qmd/ && editorTextFocus",
+    "args": {"text": "```\n"}
+  }
+]

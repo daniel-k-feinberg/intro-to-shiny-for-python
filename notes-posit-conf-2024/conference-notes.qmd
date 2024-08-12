@@ -3,6 +3,14 @@ title: "Notes from the Conference"
 date: "Aug 12, 2024"
 ---
 
+# Resources
+
+-   [Slides](https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/shiny-express-slides.html#/to-make-an-app-reactive-1)
+
+-   [API Ref](https://shiny.posit.co/py/api/express/)
+
+-   [Shiny Express Components](https://shiny.posit.co/py/components/)
+
 # Intro to Shiny
 
 ## Basic components
@@ -41,6 +49,20 @@ date: "Aug 12, 2024"
 
     -   `shiny express` uses decorators in a more extensive way; very powerful; less boilerplate
 
-## Positron notes
+# Discussing Outputs
+
+-   decorators help a lot
+
+-   what is a decorator
+
+    -   a function that wraps another function
+
+    -   returns a modified version of the function being called
+
+    -   allows our code to be much more concise
+
+## working on express-104-outputs
+
+# Positron notes
 
 -   Press F1 context instead of help
