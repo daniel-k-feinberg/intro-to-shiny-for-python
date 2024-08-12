@@ -19,7 +19,8 @@ with ui.sidebar():
     
 with ui.value_box(
     showcase=fa.icon_svg("sun", style = "regular"), 
-    showcase_layout="left center"
+    showcase_layout="left center",
+    theme = "yellow"
 ):
     "Hot days"
     @render.text
