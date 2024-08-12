@@ -5,11 +5,12 @@ matplotlib
 scikit-learn
 plotnine
 plotly
-shiny 
-shinylive
-shinywidgets
 seaborn
 jupyter
 jupyter-cache
 ipykernel
 faicons
+shiny 
+shinylive
+shinywidgets
+shinyswatch
