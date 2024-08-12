@@ -7,3 +7,6 @@ plotnine
 shiny 
 shinylive 
 seaborn
+jupyter
+jupyter-cache
+ipykernel
