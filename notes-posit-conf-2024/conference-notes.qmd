@@ -94,3 +94,21 @@ def txt():
 -   App has 2 inputs and 2 outputs
 
 -   check out non-blocking operations on the shiny for python website (in resources above)
+
+## General notes on Python vs R for Shiny
+
+-   For R
+
+    -   Use `bslib` package plus `Rshiny` to get to where we are at now with Python
+
+    -   Tables
+
+        -   use `gt()`
+
+-   For Python
+
+    -   Tables
+
+        -   great tables package
+
+        -   there may be a reactable package ?
