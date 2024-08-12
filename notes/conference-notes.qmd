@@ -1,0 +1,45 @@
+---
+title: "Notes from the Conference"
+date: "Aug 12, 2024"
+---
+
+# Intro to Shiny
+
+## Basic components
+
+1.  Inputs
+2.  Outputs
+3.  Instructions for how to build outputs from inputs
+
+*Note: you can use some outputs as inputs and and some inputs as outputs*
+
+## What we don't need to worry about 
+
+-   cache
+
+-   state
+
+-   callbacks
+
+-   or even HTML, CSS, or JavaScript
+
+## `Shiny Express` vs `Shiny Core` 
+
+-   two different syntaxes for writing shiny apps
+
+-   we will learn `shinyexpress` today
+
+    -   lighter weight
+
+    -   designed around notebooks
+
+    -   apps are faster with less boilerplate
+
+-   You may never need `shiny core`
+
+-   decorators in python allow us to reduce the number of lines of code to do the same thing
+
+    -   `shiny express` uses decorators in a more extensive way; very powerful; less boilerplate
+
+## Positron notes 
+  - Press F1 context instead of help
