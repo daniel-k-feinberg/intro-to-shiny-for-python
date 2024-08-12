@@ -12,3 +12,4 @@ seaborn
 jupyter
 jupyter-cache
 ipykernel
+faicons
