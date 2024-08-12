@@ -80,7 +80,7 @@ date: "Aug 12, 2024"
 -   "f" stands for "format" string
 ```
 
-```{python, eval=FALSE}
+```{python, eval = False}
 from shiny.express import input, render, ui
 
 ui.input_slider("n", "N", 0, 100, 20)
@@ -112,3 +112,56 @@ def txt():
         -   great tables package
 
         -   there may be a reactable package ?
+
+## Discussing UI
+
+-   when using `col_widths()` and `row_heights()` , specify the proportion out of 12 that you would like your element to expand to fill.
+
+### Shiny example: layer cards within cards
+
+```{python, eval = False}
+#| eval: false
+
+from shiny.express import ui
+
+ui.page_opts(fillable=True)
+
+with ui.layout_columns():  
+    with ui.card():  
+        ui.card_header("Card 1 header")
+        ui.p("Card 1 body")
+        ui.input_slider("slider", "Slider", 0, 10, 5)
+        
+        with ui.card():  
+            ui.card_header("SubCard 1 header")
+            ui.p("SubCard 1 body")
+            ui.input_text("text", "Add text", "")
+        
+        with ui.card():  
+            ui.card_header("SubCard 2 header")
+            ui.p("SubCard 2 body")
+            ui.input_text("text2", "Add text", "")
+```
+
+### Themes
+
+-   Use package `Shinyswatch`
+
+```{python, eval = False}
+from shinyswatch import theme 
+
+ui.page_opts(
+    title="Model scoring dashboard",
+    theme = theme.cerulean
+)
+```
+
+-   to implement an iframe into your shiny app:
+
+    -   use `tags.iframe()`
+
+## Refactor shiny apps
+
+-   Tips
+
+    -   Keep **reactive** code *in your shiny app* (code that has inputs & outputs) and **non-reactive** code *somewhere else*
