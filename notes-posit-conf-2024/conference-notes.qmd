@@ -80,6 +80,12 @@ date: "Aug 12, 2024"
 -   "f" stands for "format" string
 ```
 
+### Python "Library" vs Python "Module"
+
+-   A library is a collection of modules?
+
+-   Perhaps there may **not** be a difference
+
 ```{python, eval = False}
 from shiny.express import input, render, ui
 
@@ -165,3 +171,171 @@ ui.page_opts(
 -   Tips
 
     -   Keep **reactive** code *in your shiny app* (code that has inputs & outputs) and **non-reactive** code *somewhere else*
+
+## Using python modules
+
+-   in express-402-python-module, it shows how you can move code into a module to simplify the code in the .app file.
+
+-   principle 1: separate reactive code from non-reactive code
+
+-   principle 2: seperate some of that non-reactive code into a module
+
+## Shiny modules (different from python modules)
+
+-   allows you to take UI logic and render logic and put them both into a function
+
+-   always has `input`, `output`, `session` in that order
+
+```{python, eval = False}
+from shiny express import input, output, session, module
+
+@module
+def card_module(input, output, session, title, fn):
+    with ui.card():
+        ui.card_header(title)
+        @render.plot
+        def _plot_out():
+            return fn()
+```
+
+the call the module like you would call a function
+
+```{python, eval = False}
+card_module('id', 'title', fn)
+```
+
+Note: **`id` must be unique** in the shiny app
+
+### lambda function 
+
+-   basically an unnamed function
+
+-   python evaluates eagerly
+
+    -   it evaluates everything right away
+
+-   r evaluates lazily
+
+    -   it waits until it gets to the function to evaluate
+
+-   lambda can be used to delay evaluation by using it as an inline function
+
+```{python, eval = False}
+card_module(
+    "card_1", 
+    "Distribution", 
+    lambda: plots.temp_distribution(filtered_data())
+)
+```
+
+-   You would want to use lambda when you have more than one slider or other reactive element you're using in your shiny app
+
+## Joe Cheng speaking now 
+
+-   Sessions to look out for
+
+    -   "What's new with Shiny" on Wednesday
+
+        -   Discussing AI with Shiny
+
+            -   the team has been surprised by how effective some of the AI tools that have been developed for shiny
+
+            -   good tools for both developers of Shiny apps and for integrating into Shiny apps
+
+        -   Dataframes
+
+            -   new features there
+
+                -   being able to edit dataframes, to use them as inputs to shiny applications
+
+                -   jupyter widget ecosystem; embed into shiny apps
+
+        -   Shiny Chat component
+
+            -   allows you to build a chatbot using shiny
+
+            -   backend agnostic (doesn't care what model is being called)
+
+            -   can be called to work with your data without shipping it off to a server for a company like ChatGPT
+
+-   Shiny for R vs Shiny for Python
+
+    -   In R, the input object is a list you get values out of
+
+        -   intention was to be as familiar and approachable for people who are used to R
+
+            -   you can use object oriented programming using R6
+
+    -   in Python, that was re-examined based on what python folks would expect
+
+        -   felt like it would be better to be more "object forward"
+
+    -   there is no plan to make shiny for R and shiny for Python the same
+
+        -   Advantages/Disadvantages
+
+            -   python is not a surprising language; tries to keep things simple
+
+                -   lambdas are a good example because they are limited
+
+                -   makes python easy to read
+
+            -   R can be a surprising languages
+
+                -   there are behaviors in the language that can surprise even advanced users, but that is because it is a more powerful language (lisp, scheme, are similarly powerful and expressive)
+
+                    -   can look inscrutable as a result
+
+            -   Biggest bummer about python is
+
+                -   objects are mutable
+
+                    -   no standard way in python to copy objects
+
+                    -   this makes things complicated
+
+                    -   e.g., `pandas` dataframes are mutable
+
+                        -   `polars` corrects for that and is very promising
+
+            -   Check out R-Universe for package publishing
+
+                -   github is good enough for them
+
+                -   the guy who runs R Universe is awesome
+
+-   Deployment options
+
+    -   
+
+-   How should people think about shiny express vs shiny core
+
+    -   highly contentious within team and company
+
+    -   shiny core is Joe's opinionated approach to writing web applications
+
+        -   enforces separation between UI and reactive code
+
+        -   helps him to look at one chunk of code to see the entire UI laid out, without having to sift through other code
+
+        -   it greatly raises the learning curve though
+
+        -   shiny express was basically designed to compete with streamlit, which doesn't require this high bar to get started
+
+            -   shiny express minimizes upfront learning while not loosing the power of reactive programming
+
+                -   also allows for shiny core syntax when that makes sense
+
+        -   very little difference in power between the two, but it's just more about layout
+
+            -   chatgpt and claude understand shiny core better than shiny express
+
+-   Decorators
+
+    -   syntactic sugar that is part of the python language
+
+    -   Joe wishes that R had that
+
+        -   decorators happen before and that's helpful
+
+        -   R requires pipes, so you don't find out until the end that a code chunk is reactive
